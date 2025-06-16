@@ -52,12 +52,13 @@ export default function Textform(props) {
     <div>
         <h1 style={{color:props.mode==='dark'?'white':'black'}}> {props.Heading} </h1>
 <div className="mb-3">
-<textarea  className="form-control"  style={{backgroundColor:props.mode==='dark'?buttoncolor:'white', color:props.mode==='dark'?'white':'black'}} value={text} onChange = {handelOnChange} id="MyBox" rows="7"></textarea>
+<textarea  className="form-control"  style={{backgroundColor:props.mode==='dark'? '#484343' :'white', color:props.mode==='dark'?'white':'black'}} value={text} onChange = {handelOnChange} id="MyBox" rows="7"></textarea>
 </div>
-<button className = "btn btn-primary mx-2" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={() => handelOnclick("upper")}>Convert to Uppercase</button>
-<button className = "btn btn-primary mx-2" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={() => setIsBold(true)}>Convert the text in Bold</button>
-<button className="btn btn-primary mx-2" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={handelcopy}>Copy text</button>
-<button className="btn btn-primary mx-2" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={handelextraspace}>Remove the space</button>
+<button className = "btn btn-primary mx-2 my-1" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={() => handelOnclick("upper")}>Convert to Uppercase</button>
+<button className = "btn btn-primary mx-2 my-1" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={() => handelOnclick("lower")}>Convert to Lowercase</button>
+<button className = "btn btn-primary mx-2 my-1" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={() => setIsBold(true)}>Convert the text in Bold</button>
+<button className="btn btn-primary mx-2 my-1" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={handelcopy}>Copy text</button>
+<button className="btn btn-primary mx-2 my-1" style={{backgroundColor:props.mode==='dark'?buttoncolor:'blue'}}  onClick={handelextraspace}>Remove the space</button>
 
     </div>
 
@@ -66,8 +67,8 @@ export default function Textform(props) {
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
       <h1>Your Summary of text</h1>
-      <p>{text.split(" ").length}words and {text.length} Characters</p>
-      <p>{0.008 * text.split(" ").length}minutes to read</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} Characters</p>
+      <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length}minutes to read</p>
       <h2>Preview: <span style={{fontWeight: isBold ? 'bold' : 'normal'}}>{text}</span></h2>
     </div>
     </>
