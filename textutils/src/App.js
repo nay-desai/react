@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Textform from './components/textform'; 
 import Alert from './components/Alert';
 import { Routes, Route } from "react-router-dom";
-<BrowserRouter basename="/react"></BrowserRouter>
+
 
 function App() {
    const [mode, setmode] = useState("light")
